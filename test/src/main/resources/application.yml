@@ -1,0 +1,18 @@
+spring:
+  datasource:
+    url: none
+    username: none
+    password: none
+  liquibase:
+    enabled: true
+    change-log: classpath:db/changelog-master.yml
+    liquibase-schema: user_liquibase
+  application:
+    name: user
+  cloud:
+    loadbalancer:
+      ribbon:
+        enabled: false
+
+server:
+  port: 8081
