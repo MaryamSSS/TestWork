@@ -6,12 +6,13 @@ spring:
   liquibase:
     enabled: true
     change-log: classpath:db/changelog-master.yml
-    liquibase-schema: user_liquibase
+    liquibase-schema: pet_liquibase
   application:
-    name: user
+    name: pet
   cloud:
     loadbalancer:
       ribbon:
         enabled: false
+
 server:
-  port: 8081
+  port: 8082

@@ -4,12 +4,10 @@ import com.sss.test.dto.RqCreateUser;
 import com.sss.test.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
+@RequestMapping("api/user")
 @RequiredArgsConstructor
 public class UserController {
 
@@ -20,7 +18,7 @@ public class UserController {
      * @param rq - поступивший запрос с данными создаваемого пользователя
      * @return - результат создания пользователя
      */
-    @GetMapping("/create-user")
+    @GetMapping("create-user")
     public ResponseEntity<?> createUser(@RequestBody RqCreateUser rq){
         return userService.createUser(rq);
     }
@@ -30,7 +28,7 @@ public class UserController {
      * @param id - id пользователя
      * @return - результат поиска пользователя по id
      */
-    @GetMapping("/search-user")
+    @GetMapping("search-user")
     public ResponseEntity<?> findUserById(@RequestParam Long id){
         return userService.findUserById(id);
     }
@@ -40,7 +38,7 @@ public class UserController {
      * @param id - id пользователя
      * @return - результат удаления пользователя
      */
-    @GetMapping("/delete-user")
+    @GetMapping("delete-user")
     public ResponseEntity<?> deleteUser(@RequestParam Long id){
         return userService.deleteUser(id);
     }
@@ -51,7 +49,7 @@ public class UserController {
      * @param name - новое имя пользователя
      * @return - результат изменения имени пользователя
      */
-    @GetMapping("/edit-username")
+    @GetMapping("edit-username")
     public ResponseEntity<?> editUsername(@RequestParam Long id, @RequestParam String name){
         return userService.editUsername(id, name);
     }
@@ -62,7 +60,7 @@ public class UserController {
      * @param surname - новая фамилия пользователя
      * @return - результат изменения фамилии пользователя
      */
-    @GetMapping("/edit-surname")
+    @GetMapping("edit-surname")
     public ResponseEntity<?> editSurname(@RequestParam Long id, @RequestParam String surname){
         return userService.editSurname(id, surname);
     }
@@ -73,7 +71,7 @@ public class UserController {
      * @param patronymic - новое отчество пользователя
      * @return - результат изменения отчества пользователя
      */
-    @GetMapping("/edit-patronymic")
+    @GetMapping("edit-patronymic")
     public ResponseEntity<?> editPatronymic(@RequestParam Long id, @RequestParam String patronymic){
         return userService.editPatronymic(id, patronymic);
     }
@@ -82,7 +80,7 @@ public class UserController {
      * Получение и вывод всех пользователей
      * @return - получение и вывод всех пользователей
      */
-    @GetMapping("/get-all-users")
+    @GetMapping("get-all-users")
     public ResponseEntity<?> getAllUsers(){
         return userService.getAllUsers();
     }
